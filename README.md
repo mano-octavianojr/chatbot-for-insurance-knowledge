@@ -25,7 +25,7 @@ The badges use Google's Colab logo and open the corresponding GitHub notebook. *
 
 Gemini has a free tier for eligible models, accounts, and regions, but it is not unlimited or guaranteed for every model. Check [current pricing](https://ai.google.dev/gemini-api/docs/pricing), [rate limits](https://ai.google.dev/gemini-api/docs/rate-limits), and the API's data-use terms. Do not send personal, medical, confidential, or real policy information in these exercises.
 
-The notebooks use `gemini-2.5-flash` for generation and `gemini-embedding-001` for RAG embeddings. Change the model constants if these models are unavailable for your account. Lesson 1 needs no libraries; lessons 2–4 install the official `google-genai` SDK. RAG uses built-in Python math and an in-memory index, with the sample document included directly in the notebook.
+The notebooks use `gemini-flash-latest` for generation and `gemini-embedding-001` for RAG embeddings. The generation alias follows Google’s latest Flash model and may change behavior, quotas, or pricing over time. Change the model constants if these models are unavailable for your account. The alias does not guarantee free-tier access. Lesson 1 needs no libraries; lessons 2–4 install the official `google-genai` SDK. RAG uses built-in Python math and an in-memory index, with the sample document included directly in the notebook.
 
 ## Learning path
 
@@ -41,7 +41,7 @@ Use Python 3.10 or newer. From the repository directory:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install jupyterlab 'google-genai>=1.0,<2.0'
+python -m pip install jupyterlab 'google-genai>=2.0,<3.0'
 jupyter lab
 ```
 
@@ -62,3 +62,7 @@ API outputs vary, and a valid JSON response or citation is not proof that an ans
 ## Validation status
 
 Notebook JSON, Python syntax, lesson 1 behavior checks, and lesson 4 offline calculator checks were validated during creation. Live Gemini requests, embedding retrieval, structured responses, and automatic tool calling require a key and have not been executed during creation. Google Colab runtime execution has not been independently verified.
+
+## SDK and model references
+
+The tutorials require `google-genai>=2.0,<3.0` and use `gemini-flash-latest`, following [Google’s official Python SDK examples](https://github.com/googleapis/python-genai#readme). Consult the [model catalog](https://ai.google.dev/gemini-api/docs/models) and [deprecation schedule](https://ai.google.dev/gemini-api/docs/deprecations) when selecting a fixed model version.
